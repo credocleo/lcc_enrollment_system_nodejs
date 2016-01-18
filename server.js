@@ -28,6 +28,13 @@ app.get('/', function (req, res) {
   res.send('BABABAA');
 });
 
+app.post('/login', urlencodedParser,function(req,res){
+ data = {username: req.body.username,
+   password: req.body.password};
+ res.end(JSON.stringify(data));
+
+});
+
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
 });
