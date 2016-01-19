@@ -11,7 +11,7 @@ var connection = mysql.createConnection({
 	password: '',
 	database: 'lcc_system'
 });
-
+console.log('test');
 connection.connect();
 
 connection.query('SELECT * from students', function(err, rows, fields) {
