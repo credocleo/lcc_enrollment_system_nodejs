@@ -1,9 +1,8 @@
 'use strict'
 var express = require('express');
-var app = express();
 var mysql = require('mysql');
 var express = require('./config/express');
-
+var urlencodedParser = require('body-parser');
 var app = express();
 var connection = mysql.createConnection({
 
@@ -25,7 +24,7 @@ connection.query('SELECT * from students', function(err, rows, fields) {
 connection.end();
 
 app.get('/', function (req, res) {
-  res.send('BABABAA');
+  res.send('/public/index.html');
 });
 
 app.post('/login', urlencodedParser,function(req,res){
