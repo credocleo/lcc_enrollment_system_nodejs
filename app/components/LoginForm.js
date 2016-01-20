@@ -1,11 +1,28 @@
 'use strict';
 
 var React = require('react');
+var $ = require('jquery');
 
 
 var LoginForm = React.createClass({
 	login: function(){
-		alert('You just logged in');
+		//alert('You just logged in');
+		//alert('hi');
+		$.ajax({
+			method: "POST",
+			url: "/login",
+			data: {username: "cleo", 
+					password: "credo"}
+		}).done(function(msg){
+			alert("Data saved:" + msg.username);
+
+		}).fail(function(msg){
+			alert(msg.responseText);
+		}).always(function(){
+			alert('always');
+		});
+
+		alert('hi');
 	},
 	render: function() {
 		return (
