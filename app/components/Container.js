@@ -3,12 +3,13 @@
 var React = require('react');
 var LoginHeader = require('./LoginHeader');
 var LoginForm = require('./LoginForm');
+var Navbar = require('./Navbar');
 
 var Container = React.createClass({
 	render: function() {
 		return (
 			<div>
-				<LoginHeader />
+				<Navbar />
 				<br />
 				<br />
 				<br />

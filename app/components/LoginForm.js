@@ -4,6 +4,9 @@ var React = require('react');
 
 
 var LoginForm = React.createClass({
+	login: function(){
+		alert('You just logged in');
+	},
 	render: function() {
 		return (
 			<div className="container">
@@ -12,7 +15,7 @@ var LoginForm = React.createClass({
 						<div className="panel panel-login">
 							<div className="panel-heading">
 								<div className="row">
-									<div className="col-md-12 ">
+									<div className="col-lg-12 col-md-offset-3">
 										<h2>Log in to your account</h2>
 									</div>
 								</div>
@@ -20,30 +23,33 @@ var LoginForm = React.createClass({
 							</div>
 							<div className="panel-body">
 								<div className="row">
-									<div className="col-lg-12">
-										<form id="login-form" action="http://phpoll.com/login/process" method="post" role="form">
+									<div className="col-md-6 col-md-offset-3">
+										<form id="login-form" action="/login" method="post" role="form">
 											<div className="form-group">
-												<input type="text" name="username" id="username" tabIndex="1" className="form-control" placeholder="Username" value="" />
-											</div>
-											<div className="form-group">
-												<input type="password" name="password" id="password" tabIndex="2" className="form-control" placeholder="Password" />
-											</div>
+					                            <label htmlFor="username">Username</label>
+					                            <input type="text" className="form-control" id="username" ref="username" placeholder=" Username " autoFocus />
+					                        </div>
+					                        <div className="form-group">
+					                            <label htmlFor="password">Password</label>
+					                            <input type="password" className="form-control" id="password" ref="password" placeholder=" Password " />
+					                        </div>
 											<div className="form-group text-center">
-												<input type="checkbox" tabIndex="3" className="" name="remember" id="remember" />
-												<label htmlFor="remember"> Remember Me</label>
+												<input type="checkbox"  className="" name="remember" id="remember" />
+
+												<label htmlFor="remember">     Remember Me </label>
 											</div>
 											<div className="form-group">
 												<div className="row">
 													<div className="col-sm-6 col-sm-offset-3">
-														<input type="submit" name="login-submit" id="login-submit" tabIndex="4" className="form-control btn-primary btn btn-login" value="Log In" />
+														<input type="submit" name="login-submit" id="login-submit" className="btn-primary btn btn-login" onClick={this.login} value="Log In" />
 													</div>
-												</div>
+												</div>  
 											</div>
 											<div className="form-group">
 												<div className="row">
 													<div className="col-lg-12">
 														<div className="text-center">
-															<a href="http://phpoll.com/recover" tabIndex="5" className="forgot-password">Forgot Password?</a>
+															<a href="#" className="forgot-password">Forgot Password?</a>
 														</div>
 													</div>
 												</div>
