@@ -5,24 +5,18 @@ var $ = require('jquery');
 
 
 var LoginForm = React.createClass({
-	login: function(){
-		//alert('You just logged in');
-		//alert('hi');
-		$.ajax({
-			method: "POST",
-			url: "/login",
-			data: {username: "cleo", 
-					password: "credo"}
-		}).done(function(msg){
-			alert("Data saved:" + msg.username);
+	
+	submit: function(e){
+		e.preventDefault();
+		var self = this;
+		$.ajax({url: '/login',
+				method: 'POST',
+				data: {username: $("#username").val(),
+						password: $("#password").val()},
+				success: function(data){
+					alert(data);
+				}});
 
-		}).fail(function(msg){
-			alert(msg.responseText);
-		}).always(function(){
-			alert('always');
-		});
-
-		alert('hi');
 	},
 	render: function() {
 		return (
@@ -41,7 +35,7 @@ var LoginForm = React.createClass({
 							<div className="panel-body">
 								<div className="row">
 									<div className="col-md-6 col-md-offset-3">
-										<form id="login-form" action="/login" method="post" role="form">
+										<form id="login-form" action="/login" method="post" role="form" onSubmit={this.submit}>
 											<div className="form-group">
 					                            <label htmlFor="username">Username</label>
 					                            <input type="text" className="form-control" id="username" ref="username" placeholder=" Username " autoFocus required />
@@ -58,7 +52,7 @@ var LoginForm = React.createClass({
 											<div className="form-group">
 												<div className="row">
 													<div className="col-sm-6 col-sm-offset-3">
-														<input type="submit" name="login-submit" id="login-submit" className="btn-primary btn btn-login" onClick={this.login} value="Log In" />
+														<input type="submit" name="login-submit" id="login-submit" className="btn-primary btn btn-login" value="Log In" />
 													</div>
 												</div>  
 											</div>
