@@ -44,16 +44,16 @@ var LoginForm = React.createClass({
 										<form id="login-form" action="/login" method="post" role="form">
 											<div className="form-group">
 					                            <label htmlFor="username">Username</label>
-					                            <input type="text" className="form-control" id="username" ref="username" placeholder=" Username " autoFocus />
+					                            <input type="text" className="form-control" id="username" ref="username" placeholder=" Username " autoFocus required />
 					                        </div>
 					                        <div className="form-group">
 					                            <label htmlFor="password">Password</label>
-					                            <input type="password" className="form-control" id="password" ref="password" placeholder=" Password " />
+					                            <input type="password" className="form-control" id="password" ref="password" placeholder=" Password " required />
 					                        </div>
 											<div className="form-group text-center">
 												<input type="checkbox"  className="" name="remember" id="remember" />
 
-												<label htmlFor="remember">     Remember Me </label>
+												<label htmlFor="remember">Remember Me </label>
 											</div>
 											<div className="form-group">
 												<div className="row">
@@ -66,7 +66,7 @@ var LoginForm = React.createClass({
 												<div className="row">
 													<div className="col-lg-12">
 														<div className="text-center">
-															<a href="#" className="forgot-password">Forgot Password?</a>
+															<a href="javascript:void(0)" className="forgot-password">Forgot Password?</a>
 														</div>
 													</div>
 												</div>

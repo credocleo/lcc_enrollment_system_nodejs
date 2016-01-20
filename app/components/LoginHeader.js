@@ -11,7 +11,7 @@ var LoginHeader = React.createClass({
 
 					<div className="navbar-container" id="navbar-container">
 						<div className="navbar-header pull-left">
-							<a href="#" className="navbar-brand">
+							<a href="javascript:void(0)" className="navbar-brand">
 								<div>
 									<img src='/images/lacoco.png' />La Consolacion College-Liloan Online Enrollment System (LCCL-OES)
 								</div>
