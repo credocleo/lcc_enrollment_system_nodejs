@@ -11,7 +11,7 @@ var connection = mysql.createConnection({
 	password: '',
 	database: 'lcc'
 });
-console.log('test');
+
 connection.connect();
 
 connection.query('SELECT * from students', function(err, rows, fields) {
@@ -21,15 +21,6 @@ connection.query('SELECT * from students', function(err, rows, fields) {
     console.log('Error while performing Query.');
 });
 
-connection.query('SELECT * from user WHERE username="lacon" AND password="admin2015"', function(err, rows, fields) {
-  if (!err)
-    console.log('The solution is: ', rows);
-  else
-    console.log('Error while performing Query.');
-});
-
-
-connection.end();
 
 app.get('/', function (req, res) {
   res.send('/public/index.html');
@@ -38,7 +29,16 @@ app.get('/', function (req, res) {
 app.post('/login', bodyParser.urlencoded(),function(req,res){
  var data = {username: req.body.username,
    password: req.body.password};
- res.end(JSON.stringify(data));
+
+
+  connection.query("SELECT * from user WHERE username=cleo AND password=credo",function(err, rows, fields) {
+  if (!err)
+    res.end('SUCCESS');
+  else
+    res.end('ERROR IN AUTHENTICATION');
+  });
+
+ //res.end(JSON.stringify(data));
 
 }); 
 app.get('/login',function(req,res){
@@ -47,6 +47,8 @@ var data = {username: req.query.username,
  res.end(JSON.stringify(data));
 
 });
+
+connection.end();
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');

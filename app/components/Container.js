@@ -4,6 +4,7 @@ var React = require('react');
 var LoginHeader = require('./LoginHeader');
 var LoginForm = require('./LoginForm');
 var Navbar = require('./Navbar');
+var SidebarStudentComponent = require('./Sidebar.Student.Component');
 
 var Container = React.createClass({
 	render: function() {
@@ -18,6 +19,7 @@ var Container = React.createClass({
 				<br />
 				<br />
 				<br />
+				<SidebarStudentComponent />
 				<LoginForm />
 			</div>
 		);

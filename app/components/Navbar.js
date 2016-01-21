@@ -6,37 +6,46 @@ var Navbar = React.createClass({
 	render: function() {
 		return (
 			<div>
-				<nav className="navbar navbar-default navbar-fixed-top">
-				  <div className="container-fluid">
-				    <div className="navbar-header">
-				      <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-				        <span className="sr-only">Toggle navigation</span>
-				        <span className="icon-bar"></span>
-				        <span className="icon-bar"></span>
-				        <span className="icon-bar"></span>
-				      </button>
-				      <a className="navbar-brand" href="#">
-				      	<div>
-							LCC-OES
-						</div>
-				      </a>
-				    </div>
+				<div id="navbar" className="navbar navbar-default">
 
-				      <ul className="nav navbar-nav navbar-right">
-				        <li><a href="#"><h4>Hi User!</h4></a></li>
-				        <li className="dropdown">
-				          <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span className="caret"></span></a>
-				          <ul className="dropdown-menu">
-				            <li><a href="#">My Student Profile</a></li>
-				            <li><a href="#">Account Settings</a></li>
-				            <li><a href="#">Logout</a></li>
-				            <li role="separator" className="divider"></li>
-				            <li><a href="#">Report a problem</a></li>
-				          </ul>
-				        </li>
-				      </ul>
-				    </div>
-				</nav>
+					<div className="navbar-container" id="navbar-container">
+					
+						<button type="button" className="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
+							<span className="sr-only">Toggle sidebar</span>
+
+							<span className="icon-bar"></span>
+
+							<span className="icon-bar"></span>
+
+							<span className="icon-bar"></span>
+						</button>
+
+						
+						<div className="navbar-header pull-left">
+							
+							<a href="#" className="navbar-brand">
+								<small>
+									LCCL-OES
+								</small>
+							</a>
+
+						</div>
+
+						<div className="navbar-buttons navbar-header pull-right" role="navigation">
+							<ul className="nav ace-nav">
+								<li>
+									<a data-toggle="dropdown" className="dropdown-toggle" href="#">
+										<i className="ace-icon fa fa-sign-out"></i>
+										<span>Logout</span>
+									</a>
+								</li>
+								
+							</ul>
+						</div>
+
+					
+					</div>
+				</div>
 			</div>
 		);
 	}

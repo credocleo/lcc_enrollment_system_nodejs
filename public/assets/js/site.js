@@ -176,11 +176,6 @@ $(document).ready(function(){
 			
 	// }
 
-
-	$('.dialogs,.comments').ace_scroll({
-		size: 300
-	});
-	
 	
 	//Android's default browser somehow is confused when tapping on label which will lead to dragging the task
 	//so disable dragging when clicking on label
@@ -675,5 +670,5 @@ $(document).ready(function(){
 		console.log(e);
 	}
 	
-	$('.dialogs').ace_scroll('disable');
+
 });
