@@ -31,18 +31,6 @@ var Navbar = React.createClass({
 
 						</div>
 
-						<div className="navbar-buttons navbar-header pull-right" role="navigation">
-							<ul className="nav ace-nav">
-								<li>
-									<a data-toggle="dropdown" className="dropdown-toggle" href="#">
-										<i className="ace-icon fa fa-sign-out"></i>
-										<span>Logout</span>
-									</a>
-								</li>
-								
-							</ul>
-						</div>
-
 					
 					</div>
 				</div>

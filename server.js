@@ -43,8 +43,6 @@ var data = {username: req.query.username,
  res.end(JSON.stringify(data));
 });
 
-connection.end();
-
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
 });
