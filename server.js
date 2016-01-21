@@ -14,14 +14,6 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
-connection.query('SELECT * from students', function(err, rows, fields) {
-  if (!err)
-    console.log('The solution is: ', rows);
-  else
-    console.log('Error while performing Query.');
-});
-
-
 app.get('/', function (req, res) {
   res.send('/public/index.html');
 });
@@ -31,8 +23,8 @@ app.post('/login', bodyParser.urlencoded(),function(req,res){
    password: req.body.password};
 
 
-  connection.query("SELECT * from user WHERE username=cleo AND password=credo",function(err, rows, fields) {
-  if (!err)
+  connection.query("SELECT * from user WHERE username='data.username' AND password='data.password'",function(err, rows, fields) {
+  if (rows.length > 0 )
     res.end('SUCCESS');
   else
     res.end('ERROR IN AUTHENTICATION');
@@ -45,7 +37,6 @@ app.get('/login',function(req,res){
 var data = {username: req.query.username,
    password: req.query.password};
  res.end(JSON.stringify(data));
-
 });
 
 connection.end();
