@@ -22,15 +22,19 @@ app.post('/login', bodyParser.urlencoded(),function(req,res){
  var data = {username: req.body.username,
    password: req.body.password};
 
+  var result_success = {"success": true};
+  var result_fail = {"success": false};
+  connection.query("select * from user where username = '"+data.username+"' AND password = '"+data.password+"'", function(err, rows, fields) {
+      if(err) throw err;
 
-  connection.query("SELECT * from user WHERE username='data.username' AND password='data.password'",function(err, rows, fields) {
-  if (rows.length > 0 )
-    res.end('SUCCESS');
-  else
-    res.end('ERROR IN AUTHENTICATION');
+      if(rows.length > 0){
+          result_success.account_type = rows[0].account_type;
+          res.end(JSON.stringify(result_success));
+      }
+      else{
+          res.end(JSON.stringify(result_fail));
+      }
   });
-
- //res.end(JSON.stringify(data));
 
 }); 
 app.get('/login',function(req,res){
